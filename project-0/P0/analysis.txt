@@ -1,0 +1,19 @@
+# Introduction
+The following summarizes the analysis for each of the tasks in terms of effiency. 
+For the purposes of this assignment, I will only be focusing on new lines of code, meaning
+I would exlude data loading from the analysis.
+
+## Task 0
+O(1) : Most of processing is displaying values of list by index.
+
+## Task 1
+O(m + n) : Loop 2 times, where "times" depends on size of texts list. m is size of texts list, and n is size of calls list.
+
+## Task 2
+O(n) : To convert duration into integers. n is size of calls list.
+
+## Task 3
+O(4n) : Loop n times to check whether number is of Bangladeshi origin and identify area code. n is multiplied by 4 since we have essentially 4 loops.
+
+## Task 4
+O(n) : Print each telemarketers number, where n is size of telemarketer's list

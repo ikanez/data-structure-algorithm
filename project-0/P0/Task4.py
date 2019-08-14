@@ -25,3 +25,26 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
+# convert calls to pandas dataframe
+import pandas as pd
+
+calls_df = pd.DataFrame(calls, columns=['a','b','call_dt','duration'])
+texts_df = pd.DataFrame(texts, columns=['a','b','text_dt'])
+
+# combine all non callers + texters
+non_call_maker_df = calls_df.b 
+non_call_maker_df.append(texts_df.a)
+non_call_maker_df.append(texts_df.b)
+
+# calculate uniqueness of callers and non callers
+call_maker_ls = calls_df.a.unique()
+non_call_maker_ls = non_call_maker_df.unique()
+
+# find difference between two sets
+diff = set(call_maker_ls).difference(set(non_call_maker_ls))
+list_tele = sorted(list(diff))
+
+# print
+print("These numbers could be telemarketers: ")
+for i in list_tele:
+    print(i)
