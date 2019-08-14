@@ -1,2 +1,2 @@
 # data-structure-algorithm
- Exercises in data structures and algorithms for Udacity Nanodegree in Data Structures and Algorithm
+ A collection of problems and solutions in data structures and algorithms. Written for self exercises.
