@@ -7,13 +7,22 @@ I would exlude data loading from the analysis.
 O(1) : Most of processing is displaying values of list by index.
 
 ## Task 1
-O(m + n) : Loop 2 times, where "times" depends on size of texts list. m is size of texts list, and n is size of calls list.
+O(m) : 
+1. O(m), where m is less than n : pandas uses hashtable technique to identify unique value, which doesn't depend on sorting the data first.
 
 ## Task 2
-O(n) : To convert duration into integers. n is size of calls list.
+O(n + n^2) : 
+1. O(n): For converting duration into integers, we're looping n times and calling int() for each value. This will take O(n),
+2. O(n^2): For sorting ( sort_values() ) , we use the pandas library. Since pandas is using quicksort algorithm to do their sorting, in the worst case scenario it'd contribute to another O(n^2).
 
 ## Task 3
-O(4n) : Loop n times to check whether number is of Bangladeshi origin and identify area code. n is multiplied by 4 since we have essentially 4 loops.
+O(5n + n log n) : 
+1. O(4n): Loop n times to check whether number is of Bangladeshi origin and identify area code. n is multiplied by 4 since we have essentially 4 loops.
+2. O(n log n): For sorting, we use the standard sorted() by python. At worst it performs at O(n log n)
+3. O(n): At worst case, set() performs at O(n)
 
 ## Task 4
-O(n) : Print each telemarketers number, where n is size of telemarketer's list
+O(3n + n log n)
+1. O(n) : Looping through each telemarketers number, where n is size of telemarketer's list
+2. O(n log n): For sorting, we use the standard sorted() by python. At worst it performs at O(n log n)
+3. O(2n) : At worst case, set() performs at O(n). Since we're running it twice in serial manner, it would be O(2n)

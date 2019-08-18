@@ -44,6 +44,8 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
+import pandas as pd
+
 def check_bangalore(num):
   '''
   (080) is the area code for fixed line telephones in Bangalore.
@@ -115,24 +117,24 @@ def identify_codes(num):
     return code
 
 # convert calls to pandas dataframe
-import pandas as pd
-
 calls_df = pd.DataFrame(calls, columns=['a','b','call_dt','duration'])
 calls_df['a_bangalore'] = calls_df.a.apply(lambda x: check_bangalore(x))
 calls_df['b_bangalore'] = calls_df.b.apply(lambda x: check_bangalore(x))
 calls_df['a_codes'] = calls_df.a.apply(lambda x: identify_codes(x))
 calls_df['b_codes'] = calls_df.b.apply(lambda x: identify_codes(x))
 
+
 '''
 PART A
 '''
-
 code_list = []
 called_by_bangalore = calls_df[calls_df.a_bangalore == 1] # caller is from bangalore
-code_list = called_by_bangalore.b_codes.values
-code_list = set(code_list)
+code_list = pd.unique(called_by_bangalore.b_codes.values.ravel('K'))
 
-print("The numbers called by people in Bangalore have codes:",sorted(code_list))
+print("The numbers called by people in Bangalore have codes:")
+for i in sorted(code_list):
+  print(i)
+
 
 '''
 PART B

@@ -19,15 +19,12 @@ Print a message:
 "There are <count> different telephone numbers in the records."
 """
 
-all_nums = []
+import pandas as pd
 
-for i in texts:
-    all_nums.append(i[0])
-    all_nums.append(i[1])
+calls_df = pd.DataFrame.from_records(calls, exclude=['call_dt','duration'], columns = ['a','b','call_dt','duration']) 
+texts_df = pd.DataFrame.from_records(texts, exclude=['text_dt'], columns = ['a','b','text_dt'])
 
-for i in calls:
-    all_nums.append(i[0])
-    all_nums.append(i[1])
+combined_dt = pd.concat([calls_df,texts_df])
+set_nums = pd.unique(combined_dt[['a', 'b']].values.ravel('K'))
 
-set_nums = set(all_nums)
 print("There are",len(set_nums),"different telephone numbers in the records.")
