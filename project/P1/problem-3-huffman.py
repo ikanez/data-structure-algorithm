@@ -70,7 +70,7 @@ def build_huff_tree(text):
 
 def reduce_tree(tree, code):
     """
-    Reduce huffman tree. 
+    Reduce huffman tree .
     Input: Huffman tree node.
     Output: Mapping of each char to their encoding.
     """
@@ -136,56 +136,65 @@ if __name__ == "__main__":
 
     print("The size of the data is: {}\n".format(
         sys.getsizeof(a_great_sentence)))
-    print("The content of the data is: {}\n".format(a_great_sentence))
+    print("The content of the data is: {}\n".format(
+        a_great_sentence))  # The bird is the word
 
     encoded_data, tree = huffman_encoding(a_great_sentence)
 
     print("The size of the encoded data is: {}\n".format(
-        sys.getsizeof(int(encoded_data, base=2))))
+        sys.getsizeof(int(encoded_data, base=2))))  # 36
+    # 1010111000011010010011111010110001101111001111110000110100001101111010
     print("The content of the encoded data is: {}\n".format(encoded_data))
 
     decoded_data = huffman_decoding(encoded_data, tree)
 
     print("The size of the decoded data is: {}\n".format(
-        sys.getsizeof(decoded_data)))
-    print("The content of the encoded data is: {}\n".format(decoded_data))
+        sys.getsizeof(decoded_data)))  # 69
+    print("The content of the encoded data is: {}\n".format(
+        decoded_data))  # The bird is the word
 
     # Test case 2
     print('Test case 2')
     a_great_sentence = "The bird is the word. Yet no one writes a letter anymore. A word is no longer needed than a tweet."
 
     print("The size of the data is: {}\n".format(
-        sys.getsizeof(a_great_sentence)))
+        sys.getsizeof(a_great_sentence)))  # 147
+    # he content of the data is: The bird is the word. Yet no one writes a letter anymore. A word is no longer needed than a tweet.
     print("The content of the data is: {}\n".format(a_great_sentence))
 
     encoded_data, tree = huffman_encoding(a_great_sentence)
 
     print("The size of the encoded data is: {}\n".format(
-        sys.getsizeof(int(encoded_data, base=2))))
+        sys.getsizeof(int(encoded_data, base=2))))  # 76
+    # 11010001110100000100001111010110101001111001111001110011101000011011101010110101011010001100010011100011001010001010110010000110111011111101110100011110011111001101011001110111010010110011111110001001001100110101011100011010001000100110111010101101010011110011110011001010001101011010110001001110010110011001001000101100010100111001110111111100001111100111011011100100111001101
     print("The content of the encoded data is: {}\n".format(encoded_data))
 
     decoded_data = huffman_decoding(encoded_data, tree)
 
     print("The size of the decoded data is: {}\n".format(
-        sys.getsizeof(decoded_data)))
+        sys.getsizeof(decoded_data)))  # 147
+    # The content of the encoded data is: The bird is the word. Yet no one writes a letter anymore. A word is no longer needed than a tweet.
     print("The content of the encoded data is: {}\n".format(decoded_data))
 
     # Test case 3
     print('Test case 3')
-    a_great_sentence = "A car"
+    a_great_sentence = "aaaZZZZaaa"
 
     print("The size of the data is: {}\n".format(
-        sys.getsizeof(a_great_sentence)))
-    print("The content of the data is: {}\n".format(a_great_sentence))
+        sys.getsizeof(a_great_sentence)))  # 59
+    print("The content of the data is: {}\n".format(
+        a_great_sentence))  # aaaZZZZaaa
 
-    encoded_data, tree = huffman_encoding(a_great_sentence)
+    encoded_data, tree = huffman_encoding(a_great_sentence)  # 28
 
     print("The size of the encoded data is: {}\n".format(
-        sys.getsizeof(int(encoded_data, base=2))))
-    print("The content of the encoded data is: {}\n".format(encoded_data))
+        sys.getsizeof(int(encoded_data, base=2))))  # 1110000111
+    print("The content of the encoded data is: {}\n".format(
+        encoded_data))  # aaaZZZZaaa
 
     decoded_data = huffman_decoding(encoded_data, tree)
 
     print("The size of the decoded data is: {}\n".format(
-        sys.getsizeof(decoded_data)))
-    print("The content of the encoded data is: {}\n".format(decoded_data))
+        sys.getsizeof(decoded_data)))  # 59
+    print("The content of the encoded data is: {}\n".format(
+        decoded_data))  # aaaZZZZaaa

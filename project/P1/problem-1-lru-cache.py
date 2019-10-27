@@ -40,7 +40,6 @@ our_cache.set(2, 2)
 our_cache.set(3, 3)
 our_cache.set(4, 4)
 
-
 print(our_cache.get(1))      # returns 1
 print(our_cache.get(2))      # returns 2
 print(our_cache.get(9))     # returns -1 because 9 is not present in the cache
@@ -50,3 +49,15 @@ our_cache.set(6, 6)
 
 # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 print(our_cache.get(3))
+
+our_cache.set(7, '')
+our_cache.set(8, None)
+
+print(our_cache.get(7))  # returns ''
+print(our_cache.get(1))  # returns -1 since already removed
+print(our_cache.get(8))  # returns None
+
+our_cache.set(None, None)
+
+print(our_cache.get(None))  # returns None
+print(our_cache.cache)  # {5: 5, 6: 6, 7: '', 8: None, None: None}

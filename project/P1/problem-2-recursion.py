@@ -18,6 +18,12 @@ def find_files(suffix, path):
        a list of paths
     """
     files = []
+    try:
+        assert(suffix)
+        assert(path)
+    except:
+        print('Suffix or path does not have a valid value. Returning empty list.')
+        return []
 
     if os.path.isdir(path):  # if path is dir, traverse the listings
         for child in os.listdir(path):
@@ -40,3 +46,12 @@ print(find_files('.h', curr_path))
 
 print(find_files('.gitkeep', curr_path))
 # all files in testdir with *.gitkeep name
+
+print(find_files('.f', curr_path))
+# empty list, since no files with *.f suffix exist.
+
+print(find_files(None, curr_path))
+# empty list, since suffix is invalid
+
+print(find_files('.c', None))
+# empty list, since suffix is invalid
