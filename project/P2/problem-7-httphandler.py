@@ -81,7 +81,6 @@ class Router:
         # so it should be placed in a function here
         stripped_path = path.strip("/")
         if stripped_path:
-            print(stripped_path.split("/"))
             return stripped_path.split("/")
         return []
 
